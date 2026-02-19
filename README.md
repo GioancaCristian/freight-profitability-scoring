@@ -1,7 +1,12 @@
 # Freight Profitability Scoring System
 This project implements a hybrid profitability scoring system for road freight transport operations. The objective of the system is to estimate the financial viability of a shipment and produce a bounded profitability score between 0 and 100.
+
 The system combines deterministic financial modeling with a supervised machine learning risk layer. First, it calculates revenue and operational costs using structured transport data such as distance, fuel consumption, maintenance costs, tolls, driver costs, waiting time, and broker fees. Based on these calculations, the system derives profit and margin values and generates a deterministic base profitability score.
+
 To enhance realism and risk awareness, the project integrates a RandomForestClassifier trained to estimate the probability of financial loss. The model uses operational and financial features including transport distance, deadhead kilometers, border crossings, waiting time, payment terms, and profit margin. The predicted probability of loss is mapped to a bounded negative adjustment, ensuring that higher risk shipments receive lower final scores.
+
 The final output consists of profit estimation, margin percentage, base score, predicted risk probability, risk adjustment, and a final risk-adjusted profitability score constrained between 0 and 100.
+
 The project demonstrates how deterministic financial logic can be combined with supervised machine learning to build an interpretable and realistic decision-support system for logistics profitability analysis.
+
 Technologies used in this project include Python, Pandas, Scikit-learn, and RandomForestClassifier for supervised risk modeling.
